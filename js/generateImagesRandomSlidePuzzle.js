@@ -1,3 +1,4 @@
+
 const app_generateSliderImages = {
 
     newLogoItemImage_array : [],
@@ -108,3 +109,12 @@ const app_generateSliderImages = {
 }
 
 app_generateSliderImages.init();
+
+// Function to refresh puzzle
+
+function refresh() {
+    app_generateSliderImages.init();
+  }
+
+const refresh_button = document.querySelector(".button");
+refresh_button.addEventListener("click", refresh);
