@@ -1,0 +1,95 @@
+body {
+  color: white;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Color palette variables  */
+:root {
+  --pink_background: #a84151;
+  --soft_pink_background: #f2acb7;
+}
+
+.home_container {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  align-items: center;
+  align-content: center;
+}
+
+h1 {
+  font-size: 3rem;
+  color: var(--pink_background);
+  font-weight: bold;
+  margin: 2rem;
+  font-family: 'Bagel Fat One', cursive;
+
+}
+
+.button {
+  background-color: #a84151;
+  color: white;
+  border: none;
+  border-radius: 10%;
+  padding: 1rem;
+}
+
+.button:hover {
+  background-color: #8d3a46;
+  cursor: pointer;
+}
+
+.acueil {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rules {
+  width: 50%;
+}
+
+.puzzle {
+  width: 40vw;
+  height: 40vw;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  background-color: var(--soft_pink_background);
+}
+
+.puzzle__item {
+  background-color: var(--soft_pink_background);
+  width: 30%;
+  height: 30%;
+  border: solid 1px var(--pink_background);
+  box-sizing: border-box;
+}
+
+.puzzle__item__img {
+  width: 100%;
+}
+
+.puzzle__item__img--hidden {
+  width: 0;
+}
+
+@media screen and (max-width: 600px) {
+  .home_container {
+    flex-direction: column;
+  }
+
+  .acueil {
+    width: 100%;
+  }
+
+  .rules {
+    width: 100%;
+  }
+}
