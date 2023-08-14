@@ -1,4 +1,3 @@
-
 const app_generateSliderImages = {
 
     newLogoItemImage_array : [],
@@ -32,14 +31,18 @@ const app_generateSliderImages = {
                 newLogoItemImage.classList.add("puzzle__item__img--hidden");
             };
 
+            // On met les nouvelles balises dans un tableau
             app_generateSliderImages.newLogoItemImage_array.push(newLogoItemImage);
         }
 
+        // On verifie que la solution du puzzle est possible
         app_generateSliderImages.notPossible();
        
+        // Si la solution de taquin esr possible on ajoute les images au DOM
         for(let i = 0; i < images_logo.length; i++){
-        
+            
             const puzzle = document.querySelectorAll(".puzzle__item");
+            console.log(puzzle);
             //On ajoute chaque img creé à un div html aleatoire
             puzzle[app_generateSliderImages.nums[i]].prepend(app_generateSliderImages.newLogoItemImage_array[i]);
 
@@ -51,7 +54,6 @@ const app_generateSliderImages = {
 
     //Methode pour generer un nombre aleatoire integer entre 0 et 8 sans repetition.
     nums : [],
-    arr : ["x","x","x","x","x","x","x","x"],
 
     getRandomNumbers : function () {
 
@@ -69,22 +71,32 @@ const app_generateSliderImages = {
 
     },
 
+    arr : ["x","x","x","x","x","x","x","x"],
+
     // on verifie que le niveau de melange ce n'est pas impair (taquin impossible)
     notPossible : function () {
 
 
-        //On utilise la methode getRandomNumber() pour trouver un nombre random entre 0 et 8
+        //On utilise la methode getRandomNumber() pour creer un tableau des nombres random entre 0 et 8
         app_generateSliderImages.getRandomNumbers();
 
+        // boucle permetant declarer la position des images si on aplique le tableau random
         for(let i = 0; i < app_generateSliderImages.arr.length; i++){
             app_generateSliderImages.arr.splice(app_generateSliderImages.nums[i], 1, i);
         }
 
-        const ids = app_generateSliderImages.arr;
+        // On doit avoir un tableau de 1-9 pour povoir compter le nombre de points de melange
+        const ids = app_generateSliderImages.arr.map(function(num) {
+            return num+1;
+        });
+
+        console.log(ids);
         
+
+        // Selon la position des images random par rapport la position initial, on calcule les points de melange du taquin
         let num = 0;
         for (let i = 0; i < ids.length; i++) {
-            if(ids[i] != 8){
+            if(ids[i] != 9){
                 for(let n = i; n < ids.length; n++){
                     if(ids[i] > ids[n]){
                     num = num +1;
@@ -93,7 +105,9 @@ const app_generateSliderImages = {
             }
         };
 
+        console.log(num);
 
+        // Si le nombre de points de melange est impair, le taquin est imposible de resoudre, on relance la creation du tableau random et on reverifie
         if(num%2 !== 0){
             app_generateSliderImages.notPossible();
         };

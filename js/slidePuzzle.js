@@ -10,8 +10,10 @@ const app = {
         const colTarget = parseInt(targetImg.parentNode.dataset.col);
         const rowTarget = parseInt(targetImg.parentNode.dataset.row);
 
+        //On recupere l'element caché
         const hiddenImg = document.querySelector(".puzzle__item__img--hidden");
 
+        //En dependant de si on peut bouger en horizontal ou vertical on modifie la class hidden au click
         if (colItemHidden === (colTarget+1) && rowItemHidden === rowTarget || colItemHidden === (colTarget-1) && rowItemHidden === rowTarget) {
             targetImg.classList.add("puzzle__item__img--hidden");
             hiddenImg.classList.remove("puzzle__item__img--hidden");
