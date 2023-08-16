@@ -72,9 +72,19 @@ h1 {
   box-sizing: border-box;
 }
 
-.puzzle__item__img {
+.puzzle__item2{
+  border: none;
+}
+
+.puzzle__hidden{
+  display: none;
+}
+
+
+.puzzle__item__img, .logo__image {
   width: 100%;
 }
+
 
 .puzzle__item__img--hidden {
   width: 0;
@@ -92,4 +102,15 @@ h1 {
   .rules {
     width: 100%;
   }
+}
+
+/* Transitions */
+
+.slow-appear {
+  opacity: 0; /* Comienza con opacidad 0 para que esté oculta */
+  transition: opacity 4s ease; /* Definimos la transición para la opacidad */
+}
+
+.slow-appear.show {
+  opacity: 1; /* Cambiamos la opacidad a 1 para mostrar la imagen */
 }

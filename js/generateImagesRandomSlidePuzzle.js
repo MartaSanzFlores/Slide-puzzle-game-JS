@@ -42,7 +42,7 @@ const app_generateSliderImages = {
         for(let i = 0; i < images_logo.length; i++){
             
             const puzzle = document.querySelectorAll(".puzzle__item");
-            console.log(puzzle);
+            
             //On ajoute chaque img creé à un div html aleatoire
             puzzle[app_generateSliderImages.nums[i]].prepend(app_generateSliderImages.newLogoItemImage_array[i]);
 
@@ -90,7 +90,7 @@ const app_generateSliderImages = {
             return num+1;
         });
 
-        console.log(ids);
+        
         
 
         // Selon la position des images random par rapport la position initial, on calcule les points de melange du taquin
@@ -105,7 +105,7 @@ const app_generateSliderImages = {
             }
         };
 
-        console.log(num);
+        
 
         // Si le nombre de points de melange est impair, le taquin est imposible de resoudre, on relance la creation du tableau random et on reverifie
         if(num%2 !== 0){
