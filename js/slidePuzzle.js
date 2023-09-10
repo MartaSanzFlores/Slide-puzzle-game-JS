@@ -1,19 +1,19 @@
 const app = {
 
     handleSlideImg : function (event) {
-        //On recupere les positions du element caché
+        //On récupère les positions de l'élément caché
         const colItemHidden = parseInt(document.querySelector(".puzzle__item__img--hidden").parentNode.dataset.col);
         const rowItemHidden = parseInt(document.querySelector(".puzzle__item__img--hidden").parentNode.dataset.row);
 
-        //On recupere les positions du target
+        //On récupère les positions du target
         const targetImg = event.target;
         const colTarget = parseInt(targetImg.parentNode.dataset.col);
         const rowTarget = parseInt(targetImg.parentNode.dataset.row);
 
-        //On recupere l'element caché
+        //On récupère l'élément caché
         const hiddenImg = document.querySelector(".puzzle__item__img--hidden");
 
-        //En dependant de si on peut bouger en horizontal ou vertical on modifie la class hidden au click
+        //En fonction de si on peut bouger en horizontal ou vertical on modifie la class hidden au click
         if (colItemHidden === (colTarget+1) && rowItemHidden === rowTarget || colItemHidden === (colTarget-1) && rowItemHidden === rowTarget) {
             targetImg.classList.add("puzzle__item__img--hidden");
             hiddenImg.classList.remove("puzzle__item__img--hidden");
@@ -32,7 +32,7 @@ const app = {
 
     verification : function(){
 
-        // On verifie que le puzzle est fini
+        // On vérifie que le puzzle est fini
         
         if(document.querySelector(`.puzzle__item_1`).firstChild.src === "http://127.0.0.1:5500/images/logo_slides/logo_01.png" &&
         document.querySelector(`.puzzle__item_2`).firstChild.src === "http://127.0.0.1:5500/images/logo_slides/logo_02.png" &&
@@ -47,7 +47,7 @@ const app = {
             const border = document.querySelectorAll(`.puzzle__item`);
 
             for(let item of border){
-                item.classList.add("puzzle__item2");
+                item.classList.add("noborder");
                 item.classList.add("puzzle__hidden");
                 item.firstChild.classList.add("puzzle__item__img--hidden");
             }

@@ -3,6 +3,7 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
+  font-size: 1.4rem;
 }
 
 /* Color palette variables  */
@@ -24,11 +25,12 @@ h1 {
   color: var(--pink_background);
   font-weight: bold;
   margin: 2rem;
-  font-family: 'Bagel Fat One', cursive;
+  font-family: 'Preahvihear', sans-serif;
 
 }
 
 .button {
+  font-size: 0.8rem;
   background-color: #a84151;
   color: white;
   border: none;
@@ -41,15 +43,11 @@ h1 {
   cursor: pointer;
 }
 
-.acueil {
+.container {
   width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.rules {
-  width: 50%;
 }
 
 .puzzle {
@@ -72,7 +70,7 @@ h1 {
   box-sizing: border-box;
 }
 
-.puzzle__item2{
+.noborder{
   border: none;
 }
 
@@ -80,37 +78,48 @@ h1 {
   display: none;
 }
 
-
 .puzzle__item__img, .logo__image {
   width: 100%;
 }
-
 
 .puzzle__item__img--hidden {
   width: 0;
 }
 
+
+
 @media screen and (max-width: 600px) {
+  .container {
+    flex-direction: column;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .button{
+    margin: 5%;
+    font-size: 0.4rem;
+    padding: 0.5rem
+  }
+
   .home_container {
     flex-direction: column;
   }
 
-  .acueil {
+  .container {
     width: 100%;
   }
 
-  .rules {
-    width: 100%;
-  }
 }
 
 /* Transitions */
 
 .slow-appear {
-  opacity: 0; /* Comienza con opacidad 0 para que esté oculta */
-  transition: opacity 4s ease; /* Definimos la transición para la opacidad */
+  opacity: 0;
+  transition: opacity 4s ease;
 }
 
 .slow-appear.show {
-  opacity: 1; /* Cambiamos la opacidad a 1 para mostrar la imagen */
+  opacity: 1;
 }
